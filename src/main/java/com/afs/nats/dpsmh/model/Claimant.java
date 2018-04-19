@@ -1,17 +1,16 @@
 package com.afs.nats.dpsmh.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import com.afs.nats.dpsmh.audit.ClaimantEntityListener;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotBlank;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Data
@@ -20,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @EntityListeners(ClaimantEntityListener.class)
 public class Claimant extends Auditable<String> {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message = "Indique nombre de solicitante")
     private @NonNull
